@@ -3,8 +3,10 @@ import sys
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
-from .cores import INPUT_ERROR, INPUT_OK, POPUP_ERROR, POPUP_OK
+from .cores import (INPUT_ERROR, INPUT_OK, LABEL_ERROR, LABEL_VERDE,
+                    POPUP_ERROR, POPUP_OK)
 from .create_account import Ui_CreatedAccountWindow
+from .forget_password import Ui_ForgetPassword
 from .login import Ui_LoginWindow
 
 
@@ -146,6 +148,9 @@ class LoginWindow(QMainWindow):
         ### Fazer Login e verificar os campos
         self.ui.btn_fazer_login.clicked.connect(self.checkFilds)
 
+        ### Botao de Esqueceu a senha
+        self.ui.btn_forget_password.clicked.connect(self.abrir_janela_esqueci_senha)
+
         self.show()
 
     def close_popup(self):
@@ -194,3 +199,61 @@ class LoginWindow(QMainWindow):
         account_window = CreateAccount()
         self.hide()
         self.ui = account_window
+
+    def abrir_janela_esqueci_senha(self):
+        forget_window = ForgetPassword()
+        self.hide()
+        self.ui = forget_window
+
+
+class ForgetPassword(QMainWindow):
+    def __init__(self):
+        QMainWindow.__init__(self)
+        self.ui = Ui_ForgetPassword()
+        self.ui.setupUi(self)
+
+        ## REMOVE TITLE BAR
+        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+
+        ### BTN CLOSE WINDOW
+        self.ui.btn_cancelar.clicked.connect(self.fechar_forget)
+
+        ### BTN SEND EMAIL
+        self.ui.btn_enviar.clicked.connect(self.checkFilds)
+
+
+        self.show()
+
+    def checkFilds(self):
+            text_email = ''
+
+            # Show Message in PoPup error
+            def showMessage(message):
+                self.ui.lb_digite_seu_email.setText(message)
+
+            # Check E-mail
+            if not self.ui.input_email.text():
+                text_email = " E-mail inválido "
+                self.ui.input_email.setStyleSheet(INPUT_ERROR)
+            else:
+                if '@' not in self.ui.input_email.text() or '.' not in self.ui.input_email.text():
+                    text_email = " E-mail inválido "
+                    self.ui.input_email.setStyleSheet(INPUT_ERROR)
+                else:
+                    text_email = ""
+
+            if text_email != '':
+                email_status = text_email
+                showMessage(email_status)
+                self.ui.lb_digite_seu_email.setStyleSheet(LABEL_ERROR)
+            else:
+                email_status = " Email enviado !"
+                self.ui.lb_digite_seu_email.setStyleSheet(LABEL_VERDE)
+                self.ui.input_email.setStyleSheet(INPUT_OK)
+                showMessage(email_status)
+
+    def fechar_forget(self):
+        login_window = LoginWindow()
+        self.hide()
+        self.ui = login_window

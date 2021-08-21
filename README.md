@@ -1,5 +1,5 @@
 # Bem vindo ao **LOGIN Dev**!
-<p><img height="20" src="https://img.shields.io/badge/Project-In%20progress-green"/><img height="20" src="https://img.shields.io/badge/Version-Beta 0.1-blue"/></p>
+<p><img height="20" src="https://img.shields.io/badge/Project-In%20progress-green"/><img height="20" src="https://img.shields.io/badge/Version-Beta 0.2-blue"/></p>
 
 O desenvolvimento de interfaces gráficas é algo muito importante em toda a produção de um projeto.
 Neste projeto eu dou inicio a construção de uma interface de login e criação de contas, tudo foi construido utilizando o PyQt5 sem intuitos de lucro.   
@@ -15,12 +15,16 @@ _**A intenção inicial não é criar uma interface de produção, logo não est
  ![Tela de Login](images/github/login.png)
 ### Tela de Criar Conta
  ![Tela de Criar Conta](images/github/criar_conta.png)
+### Tela de Esqueceu a senha
+ ![Tela de Esqueceu a senha](images/github/esqueceu_senha.png)
 ### Verificação dos campos
  ![Verificação dos campos 1](images/github/verificação_criar_conta.png)
  ![Verificação dos campos 2](images/github/verificação_login.png)
+ ![Verificação dos campos 3](images/github/verificação_esqueceu_senha.png)
 ### Campos preenchidos corretamente
  ![Campos preenchidos corretamente 1](images/github/login_sucess.png)
  ![Campos preenchidos corretamente 2](images/github/account_sucess.png)
+ ![Campos preenchidos corretamente 3](images/github/esqueceu_senha_sucess.png)
 ## Instalação
 
 1. Primeiramente você pode clonar este repositório.
