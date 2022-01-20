@@ -6,7 +6,6 @@ Neste projeto eu dou inicio a construção de uma interface de login e criação
 _**A intenção inicial não é criar uma interface de produção, logo não está conectada a nenhum banco de dados, por enquanto!**_
 
 ## Redes Sociais
-* [Site](https://portfolio-claudio.herokuapp.com)
 * [Instagram](https://www.instagram.com/claudiogfez/)
 * [Linkedin](https://www.linkedin.com/in/clcostaf/)
 
